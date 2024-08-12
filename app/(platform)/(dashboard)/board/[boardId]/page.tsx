@@ -17,7 +17,7 @@ const BoardIdPage = async ({ params }: BoardIdPageProps) => {
 
   const lists = await db.list.findMany({
     where: {
-      id: params.boardId,
+      boardId: params.boardId,
       board: {
         orgId,
       },
