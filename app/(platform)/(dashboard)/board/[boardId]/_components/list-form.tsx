@@ -32,7 +32,7 @@ export const ListForm = () => {
     setIsEditing(false);
   };
 
-  const { execute, isLoading, fieldErrors } = useAction(createList, {
+  const { execute, fieldErrors } = useAction(createList, {
     onSuccess: (data) => {
       toast.success("List created successfully", {
         description: `List "${data.title}" has been created`,

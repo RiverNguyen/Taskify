@@ -6,7 +6,7 @@ import { useAction } from "@/hooks/use-action";
 import { List } from "@prisma/client";
 import { ElementRef, useRef, useState } from "react";
 import { toast } from "sonner";
-import { useEventListener } from "usehooks-ts";
+import { useEventListener, useOnClickOutside } from "usehooks-ts";
 import { ListOptions } from "./list-options";
 
 interface ListHeaderProps {
@@ -70,6 +70,7 @@ export const ListHeader = ({ data, onAddCard }: ListHeaderProps) => {
     }
   };
 
+  useOnClickOutside(formRef, disableEditing);
   useEventListener("keydown", onKeyDown);
 
   return (
