@@ -27,9 +27,6 @@ export const ListContainer = ({ boardId, data }: ListContainerProps) => {
   const [orderedData, setOrderedData] = useState(data);
 
   const { execute: executeUpdateListOrder } = useAction(updateListOrder, {
-    onSuccess: () => {
-      toast.success("List reordered");
-    },
     onError: (error) => {
       toast.error("Failed to reorder list");
       console.log(error);
@@ -37,9 +34,6 @@ export const ListContainer = ({ boardId, data }: ListContainerProps) => {
   });
 
   const { execute: executeUpdateCardOrder } = useAction(updateCardOrder, {
-    onSuccess: () => {
-      toast.success("Card reordered");
-    },
     onError: (error) => {
       toast.error("Failed to reorder card");
       console.log(error);
