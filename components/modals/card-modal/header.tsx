@@ -1,12 +1,15 @@
 "use client";
 
+import { updateCard } from "@/actions/update-card";
 import { FormInput } from "@/components/form/form-input";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useAction } from "@/hooks/use-action";
 import { CardWithList } from "@/type";
 import { useQueryClient } from "@tanstack/react-query";
 import { Layout } from "lucide-react";
 import { useParams } from "next/navigation";
 import { ElementRef, useRef, useState } from "react";
+import { toast } from "sonner";
 
 interface HeaderProps {
   data: CardWithList;
@@ -15,6 +18,22 @@ interface HeaderProps {
 export const Header = ({ data }: HeaderProps) => {
   const queryClient = useQueryClient();
   const params = useParams();
+
+  const { execute } = useAction(updateCard, {
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({
+        queryKey: ["card", data.id],
+      });
+
+      toast.success("Card updated successfully", {
+        description: `Renamed card to ${data.title}`,
+      });
+    },
+    onError: (error) => {
+      console.log(error);
+      toast.error("Failed to update card");
+    },
+  });
 
   const inputRef = useRef<ElementRef<"input">>(null);
 
@@ -25,7 +44,14 @@ export const Header = ({ data }: HeaderProps) => {
   };
 
   const onSubmit = (formData: FormData) => {
-    console.log(formData.get("title"));
+    const title = formData.get("title") as string;
+    const boardId = params.boardId as string;
+
+    if (title === data.title) {
+      return;
+    }
+
+    execute({ title, boardId, id: data.id });
   };
 
   return (
