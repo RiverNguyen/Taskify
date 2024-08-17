@@ -19,6 +19,8 @@ export const Header = ({ data }: HeaderProps) => {
   const queryClient = useQueryClient();
   const params = useParams();
 
+  const [title, setTitle] = useState(data.title);
+
   const { execute } = useAction(updateCard, {
     onSuccess: (data) => {
       queryClient.invalidateQueries({
@@ -28,6 +30,8 @@ export const Header = ({ data }: HeaderProps) => {
       toast.success("Card updated successfully", {
         description: `Renamed card to ${data.title}`,
       });
+
+      setTitle(data.title);
     },
     onError: (error) => {
       console.log(error);
@@ -36,8 +40,6 @@ export const Header = ({ data }: HeaderProps) => {
   });
 
   const inputRef = useRef<ElementRef<"input">>(null);
-
-  const [title, setTitle] = useState(data.title);
 
   const onBlur = () => {
     inputRef.current?.form?.requestSubmit();
