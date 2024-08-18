@@ -22,5 +22,6 @@ export const UpdateCard = z.object({
         message: "Title must longer than 3 characters",
       })
   ),
+  image: z.optional(z.string()),
   id: z.string(),
 });

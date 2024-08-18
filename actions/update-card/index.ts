@@ -16,7 +16,10 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     };
   }
 
-  const { id, boardId, ...values } = data;
+  const { id, boardId, image, ...values } = data;
+
+  const [imageId, imageThumbUrl, imageFullUrl, imageUserName, imageLinkHtml] =
+    image ? image.split("|") : [];
 
   let card;
 
@@ -31,12 +34,17 @@ const handler = async (data: InputType): Promise<ReturnType> => {
         },
       },
       data: {
+        imageId,
+        imageThumbUrl,
+        imageFullUrl,
+        imageUserName,
+        imageLinkHtml,
         ...values,
       },
     });
   } catch (error) {
     return {
-      error: "Failed to update board",
+      error: "Failed to update card",
     };
   }
 
