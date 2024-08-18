@@ -1,6 +1,6 @@
-# Trello Clone
+# Taskify
 
-Trello Clone là một ứng dụng quản lý dự án mô phỏng giao diện của Trello, cho phép người dùng tạo, chỉnh sửa, và quản lý các bảng dự án và nhiệm vụ. Ứng dụng này được xây dựng với [React](https://reactjs.org/) và [Tailwind CSS](https://tailwindcss.com/).
+Taskify là một ứng dụng quản lý dự án mô phỏng giao diện của Trello, cho phép người dùng tạo, chỉnh sửa, và quản lý các bảng dự án và nhiệm vụ. Ứng dụng này được xây dựng với [NextJS](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/) và [Hello-Pangea/dnd](https://dnd.hellopangea.com/) để tạo ra trải nghiệm kéo và thả thẻ mượt mà.
 
 ## Tính năng
 
@@ -41,6 +41,7 @@ Trello Clone là một ứng dụng quản lý dự án mô phỏng giao diện 
 - [Tanstack/react-query](https://react-query.tanstack.com/)
 - [Shadcn/ui](https://shadcn.com/ui)
 - [Tailwind CSS](https://tailwindcss.com/)
+- [Hello-Pangea/dnd](https://dnd.hellopangea.com/)
 
 ## Cấu trú thư mục
 
