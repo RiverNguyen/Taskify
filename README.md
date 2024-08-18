@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Trello Clone
 
-## Getting Started
+Trello Clone là một ứng dụng quản lý dự án mô phỏng giao diện của Trello, cho phép người dùng tạo, chỉnh sửa, và quản lý các bảng dự án và nhiệm vụ. Ứng dụng này được xây dựng với [React](https://reactjs.org/) và [Tailwind CSS](https://tailwindcss.com/).
 
-First, run the development server:
+## Tính năng
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Tạo, chỉnh sửa và xóa bảng dự án
+- Thêm, chỉnh sửa và xóa danh sách trong bảng
+- Thêm, chỉnh sửa và xóa thẻ trong danh sách
+- Kéo và thả thẻ để thay đổi vị trí
+- Responsive và tương thích với nhiều thiết bị
+
+## Cài đặt
+
+1. **Clone repository**
+
+   ```bash
+   git clone https://github.com/RiverNguyen/trello-clone.git
+   ```
+
+2. **Cài đặt dependencies**
+
+   ```bash
+   cd trello-clone
+   npm install
+   ```
+
+3. **Chạy ứng dụng**
+
+   ```bash
+    npm start
+   ```
+
+## Công nghệ sử dụng
+
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React](https://reactjs.org/)
+- [Prisma](https://www.prisma.io/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Tanstack/react-query](https://react-query.tanstack.com/)
+- [Shadcn/ui](https://shadcn.com/ui)
+- [Tailwind CSS](https://tailwindcss.com/)
+
+## Cấu trú thư mục
+
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+trello-clone/
+├── actions/
+├── app/
+├── components/
+├── pages/
+├── prisma/
+├── public/
+├── styles/
+├── types/
+├── .env
+├── .gitignore
+├── README.md
+├── package.json
+├── tsconfig.json
+```
