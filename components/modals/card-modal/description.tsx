@@ -100,7 +100,7 @@ export const Description = ({ data }: DescriptionProps) => {
         ) : (
           <div
             onClick={enableEditing}
-            className="min-h-[78px] bg-neutral-200 text-sm font-medium py-3 px-3.5 rounded-md"
+            className="min-h-[112px] bg-neutral-200 text-sm font-medium py-3 px-3.5 rounded-md"
             role="button"
           >
             {data.description || "Add a more detailed description..."}
@@ -117,7 +117,7 @@ Description.Skeleton = function DescriptionSkeleton() {
       <Skeleton className="h-6 w-6 bg-neutral-200" />
       <div className="w-full">
         <Skeleton className="w-24 h-6 mb-2 bg-neutral-200" />
-        <Skeleton className="w-full h-[78px] mb-2 bg-neutral-200" />
+        <Skeleton className="w-full h-[112px] mb-2 bg-neutral-200" />
       </div>
     </div>
   );

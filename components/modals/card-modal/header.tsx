@@ -82,8 +82,8 @@ export const Header = ({ data }: HeaderProps) => {
             src={`${cardData.imageFullUrl}`}
             alt="Card Cover"
             className="w-full h-full object-cover object-center"
-            width={600}
-            height={160}
+            width={800}
+            height={200}
             onLoadingComplete={() => setIsImageLoading(false)}
             onError={() => setIsImageLoading(false)}
           />

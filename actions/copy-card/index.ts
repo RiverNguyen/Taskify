@@ -58,6 +58,11 @@ const handler = async (data: InputType): Promise<ReturnType> => {
         description: cardCopy.description,
         order: newOrder,
         listId: cardCopy.listId,
+        imageId: cardCopy.imageId,
+        imageFullUrl: cardCopy.imageFullUrl,
+        imageLinkHtml: cardCopy.imageLinkHtml,
+        imageThumbUrl: cardCopy.imageThumbUrl,
+        imageUserName: cardCopy.imageUserName,
       },
     });
   } catch (error) {
