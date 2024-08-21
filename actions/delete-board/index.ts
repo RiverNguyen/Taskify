@@ -10,6 +10,7 @@ import { redirect } from "next/navigation";
 import { createAuditLog } from "@/lib/create-audit-log";
 import { ACTION, ENTITY_TYPE } from "@prisma/client";
 import { decreaseAvailableBoards } from "@/lib/org-limit";
+import { checkSubscription } from "@/lib/subscription";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
   const { userId, orgId } = auth();
@@ -19,6 +20,8 @@ const handler = async (data: InputType): Promise<ReturnType> => {
       error: "User not authenticated",
     };
   }
+
+  const isPro = await checkSubscription();
 
   const { id } = data;
 
@@ -32,7 +35,9 @@ const handler = async (data: InputType): Promise<ReturnType> => {
       },
     });
 
-    await decreaseAvailableBoards();
+    if (!isPro) {
+      await decreaseAvailableBoards();
+    }
 
     await createAuditLog({
       entityTitle: board.title,
