@@ -4,6 +4,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { MAX_FREE_BOARD } from "@/constants/board";
 import { db } from "@/lib/db";
 import { getAvailableBoards } from "@/lib/org-limit";
+import { checkSubscription } from "@/lib/subscription";
 import { auth } from "@clerk/nextjs/server";
 import { HelpCircle, User2 } from "lucide-react";
 import Link from "next/link";
@@ -24,6 +25,7 @@ export const BoardList = async () => {
   });
 
   const availableBoards = await getAvailableBoards();
+  const isPro = await checkSubscription();
   return (
     <div className="space-y-4">
       <div className="flex items-center font-semibold text-lg text-neutral-700">
@@ -50,7 +52,9 @@ export const BoardList = async () => {
           >
             <p className="text-sm">Create new board</p>
             <span className="text-xs text-neutral-500">
-              {`${MAX_FREE_BOARD - availableBoards} remaining`}
+              {isPro
+                ? "Unlimited"
+                : `${MAX_FREE_BOARD - availableBoards} remaining`}
             </span>
             <Hint
               sideOffset={40}
